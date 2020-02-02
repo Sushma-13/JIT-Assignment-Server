@@ -21,8 +21,13 @@ app.get('/', (req, res) => {
 });
 
 //db connection
-mongoose.connect(process.env.DB_CONNECTION_LOCAL, { useNewUrlParser: true }, () => {
-    console.log('Connected to DB');
-});
+mongoose.connect(process.env.DB_CONNECTION_LOCAL, { useNewUrlParser: true }, (err) => {
+    if (err) {
+        console.log('Error connecting to DB ' + err);
+    } else {
+        console.log('Connected to DB');
+    }
+
+}).catch(err => Console.log("exception"));
 
 app.listen(3000);

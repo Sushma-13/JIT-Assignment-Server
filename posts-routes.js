@@ -29,7 +29,6 @@ router.get('/:postId', async(req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
     const post = new Post({
-        id: req.body.id,
         text: req.body.text,
         datetime: req.body.datetime,
         upvotes: req.body.upvotes
@@ -52,6 +51,15 @@ router.put('/:postId', async(req, res) => {
             }
         });
         res.json(updatedPost);
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
+
+router.delete('/:postId', async(req, res) => {
+    try {
+        const removedPost = await Post.remove({ _id: req.params.postId });
+        res.json(removedPost);
     } catch (err) {
         res.json({ message: err });
     }
