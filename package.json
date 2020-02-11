@@ -4,7 +4,8 @@
     "description": "Node and express server",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon index.js"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
     },
     "author": "Sushma Goswami",
     "license": "ISC",
@@ -15,7 +16,7 @@
         "express": "^4.17.1",
         "mongoose": "^5.8.11"
     },
-    "devDependencies": {
-        "nodemon": "^2.0.2"
+    "engines": {
+        "node": "10.x"
     }
 }
