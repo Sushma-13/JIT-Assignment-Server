@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 //db connection
-mongoose.connect(process.env.DB_CONNECTION_LOCAL, { useNewUrlParser: true }, (err) => {
+mongoose.connect(process.env.DB_CONNECTION_REMOTE, { useNewUrlParser: true }, (err) => {
     if (err) {
         console.log('Error connecting to DB ' + err);
     } else {
@@ -30,4 +30,4 @@ mongoose.connect(process.env.DB_CONNECTION_LOCAL, { useNewUrlParser: true }, (er
 
 }).catch(err => Console.log("exception"));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
